@@ -1,10 +1,3 @@
-const body = document.querySelector('body');
-// console.log(bodyRefs);
-const startBtn = document.querySelector('button[data-start]');
-// console.log(buttonStartRefs);
-const stopBtn = document.querySelector('button[data-stop]');
-// console.log(buttonStopRefs);
-
 const refs = {
   body: document.querySelector('body'),
   startBtn: document.querySelector('button[data-start]'),
