@@ -24,9 +24,11 @@ function submitCreatePromise(e) {
         Notiflix.Notify.success(`✅ Fulfilled promise ${i} in ${delay} ms`);
         console.log(delay);
       })
+
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${i} in ${delay} ms`);
       });
+
     delay += step;
   }
 }
@@ -35,6 +37,7 @@ function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
+
       if (shouldResolve) {
         resolve({ position, delay });
       } else {
