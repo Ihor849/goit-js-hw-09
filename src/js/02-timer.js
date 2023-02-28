@@ -21,13 +21,18 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < new Date()) {
+    if (refs.inputDatetime.value === '' || selectedDates[0] < new Date()) {
       refs.startBtn.disabled = true;
       Notiflix.Notify.failure(
         'Please choose a date in the future! Do not look back..'
       );
       //   alert('Please choose a date in the future! Do not look back..');
       return;
+    } else if (refs.inputDatetime === '') {
+      refs.startBtn.disabled = true;
+      Notiflix.Notify.failure(
+        'Please choose a date in the future! Do not look back..'
+      );
     }
     refs.startBtn.disabled = false;
     refs.startBtn.addEventListener('click', () => {
