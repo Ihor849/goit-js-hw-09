@@ -17,11 +17,6 @@ img {
   max-width: 100%;
 }
 
-.controlBtn {
-  background-color: aqua;
-  border-radius: 4px;
-}
-
 .timer {
   display: flex;
   gap: 20px;
@@ -39,6 +34,7 @@ img {
     rgba(252, 219, 69, 1) 100%
   );
 }
+
 .start-btn {
   border-radius: 4px;
   border-color: aqua;
@@ -59,4 +55,8 @@ img {
 }
 .create-promises {
   background: linear-gradient(36deg, #00b09b, #96c93d);
+}
+.control-btn {
+  background-color: aqua;
+  border-radius: 4px;
 }
