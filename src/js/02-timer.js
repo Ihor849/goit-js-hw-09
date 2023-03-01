@@ -12,8 +12,10 @@ const refs = {
   spanMinutes: document.querySelector('span[data-minutes]'),
   spanSeconds: document.querySelector('span[data-seconds]'),
 };
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+
 refs.startBtn.disabled = true;
+refs.startBtn.classList.add('start-btn');
 
 const options = {
   enableTime: true,
@@ -36,6 +38,8 @@ const options = {
     }
     refs.startBtn.disabled = false;
     refs.startBtn.addEventListener('click', () => {
+      refs.startBtn.disabled = true;
+      refs.inputDatetime.disabled = true;
       let timerId = null;
       timerId = setInterval(() => {
         const timeDelta = selectedDates[0] - new Date();
@@ -62,12 +66,14 @@ function convertMs(ms) {
   // Remaining days
   const days = addLeadingZero(Math.floor(ms / `${day}`));
   // Remaining hours
-  const hours = Math.floor((ms % `${day}`) / `${hour}`);
+  const hours = addLeadingZero(Math.floor((ms % `${day}`) / `${hour}`));
   // Remaining minutes
-  const minutes = Math.floor(((ms % `${day}`) % `${hour}`) / `${minute}`);
+  const minutes = addLeadingZero(
+    Math.floor(((ms % `${day}`) % `${hour}`) / `${minute}`)
+  );
   // Remaining seconds
-  const seconds = Math.floor(
-    (((ms % `${day}`) % `${hour}`) % `${minute}`) / `${second}`
+  const seconds = addLeadingZero(
+    Math.floor((((ms % `${day}`) % `${hour}`) % `${minute}`) / `${second}`)
   );
 
   return { days, hours, minutes, seconds };
