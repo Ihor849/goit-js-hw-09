@@ -10,7 +10,7 @@ const refs = {
   formInput: document.querySelectorAll('input[type="number"]'),
 };
 
-for (let i = 0; i < refs.formInput.length; i++) {
+for (let i = 0; i < refs.formInput.length; i += 1) {
   refs.formInput[i].classList.add('form-input');
 }
 refs.button.classList.add('create-promises');
